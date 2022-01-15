@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Lights</title>
+    <link rel="stylesheet" href="f1Game.css">
+    <script src="f1Game.js"></script>
+    <!--Mobile friendly-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!--Description-->
+    <h1>How to play
+        <ol>
+            <li>Press start button to begin the lights</li>
+            <li>The lights will turn on, one by one</li>
+            <li>All the lights are on, be ready to press stop!!!</li>
+            <li>Your reaction time is how fast you can press stop once the lights go out!</li>
+        </ol>
+    </h1>
+    <!--Rectangles and lights-->
+    <div class="rectangle">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light" id="one"></div>
+    </div>
+    <div class="rectangle">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light" id="two"></div>
+    </div>
+    <div class="rectangle">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light" id="three"></div>
+    </div>
+    <div class="rectangle">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light" id="four"></div>
+    </div>
+
+    <!--Start/Stop/Reaction Time-->
+    <div>
+        <button onclick="startFunction()">Start</button>
+        <button onclick="stopFunction()">Stop</button>
+    </div>
+    <div>Reaction Time: <div id="reactionTime">0</div>miliseconds</div>
+
+<!--Inline CSS as the links to css files not working-->
+<style>
+    body{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+}
+
+.rectangle{
+    background: #453838;
+    width: 100px;
+    height: 200px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+    left: 33.3%;
+}
+
+/*selects each light*/
+.light{
+    background: #000000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+/*selects the last row of lights*/
+.light:last-child{
+    background: #000000;
+}
+
+/*start stop buttons*/
+button{
+    margin: 5px;
+    padding: 5px;
+    font-size: 25px;
+    border-radius: 4px;
+}
+
+#reactionTime{
+    font-size: 25px;
+}
+
+/*how to play and instructions*/
+h1{
+    font-size: 25px;
+}
+li{
+    font-weight:normal;
+    font-size: 15px;
+    list-style-type: none;
+}
+
+/* make responsive for mobile */
+/* stop browser from resizing things */
+@viewport{
+    width: device-width;
+    zoom: 1.0;
+}
+@-ms-viewport{
+    width: device-width ;
+}
+/* media-queries = adapt to smaller screen manually */
+/*Screen sizes: 
+    - iPad      [768x1024]
+    - iPhone X  [375x812]
+    - iPhone 6  [375x667]
+*/
+/* iPhone X/6 */
+@media screen and (max-width: 390px){
+    body{
+        top: 10%;
+        margin-left: 0%;
+    }
+    .rectangle{
+        width: 65px;
+    }
+}
+</style>
+
+<!--Inline Javescript as the links to js files not working-->
+<script>
+// turn all the bottom lights on one by one from left to right
+function startFunction(){
+    // light 1
+    setTimeout(() => {document.getElementById("one").style.background = "red";} , 500);
+    // light 2
+    setTimeout(() => {document.getElementById("two").style.background = "red";} , 1000);
+    // light 3
+    setTimeout(() => {document.getElementById("three").style.background = "red";} , 2000);
+    // light 4
+    setTimeout(() => {document.getElementById("four").style.background = "red";} , 3000);
+    // lights out and start timer
+    setTimeout(() => {lightsOut();}, 4000);
+}
+
+//turn the bottom lights back to black at a random time and start the reaction timer
+function lightsOut(){
+    function getRandomTime(min,max){
+        return Math.random() * (max - min) + min;
+    }
+    //console.log(getRandomTime(2000,6000))
+    const time = getRandomTime(1000,3000);
+    console.log(time)
+    setTimeout(() => {document.getElementById("one").style.background = "#000000";} , time);
+    setTimeout(() => {document.getElementById("two").style.background = "#000000";} , time);
+    setTimeout(() => {document.getElementById("three").style.background = "#000000";} , time);
+    setTimeout(() => {document.getElementById("four").style.background = "#000000";} , time);    
+
+    setTimeout(() => {starttimer()} , time);
+}
+
+function starttimer(){
+    start = Date.now();
+}
+// function called when stop button pressed
+function stopFunction(){
+    var timepassed = Date.now() - start;
+    document.getElementById("reactionTime").innerHTML = timepassed;
+}
+</script>
+</body>
+<footer>Author: Nathan Crowley - <a href="https://github.com/NathanCrowley">github</a> - 15/01/202</footer>
+</html>

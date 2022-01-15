@@ -1,5 +1,9 @@
 from django.http import HttpResponse
+from django.template import loader
+from django.shortcuts import render
+
+from .models import Score
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return render(request,'f1Game/f1Game.html')
