@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 Lights</title>
-    <link rel="stylesheet" href="f1Game.css">
-    <script src="f1Game.js"></script>
+    <!--<link rel="stylesheet" href="f1Game.css">
+    <script src="f1Game.js"></script>-->
     <!--Mobile friendly-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -48,9 +48,28 @@
     <!--Start/Stop/Reaction Time-->
     <div>
         <button onclick="startFunction()">Start</button>
-        <button onclick="stopFunction()">Stop</button>
+        <button id="stop">Stop</button>
     </div>
-    <div>Reaction Time: <div id="reactionTime">0</div>miliseconds</div>
+
+    <div>Reaction Time: <div id="reactionTime" name="current_score">0</div>miliseconds</div>
+
+<!--Testing
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>Reaction Time: <div id="reactionTime" name="current_score">0</div>miliseconds</div>
+    </form>
+
+    <p id="high_score">Best Score: {{ scores.high_score }}</p>
+
+    <ul>
+        {% for score in list_of_scores %}
+            <li>{{ score.high_score }}</li>
+        {% endfor %}
+    </ul>
+-->
+
+
+
 
 <!--Inline CSS as the links to css files not working-->
 <style>
@@ -158,24 +177,33 @@ function lightsOut(){
     }
     //console.log(getRandomTime(2000,6000))
     const time = getRandomTime(1000,3000);
-    console.log(time)
+
     setTimeout(() => {document.getElementById("one").style.background = "#000000";} , time);
     setTimeout(() => {document.getElementById("two").style.background = "#000000";} , time);
     setTimeout(() => {document.getElementById("three").style.background = "#000000";} , time);
     setTimeout(() => {document.getElementById("four").style.background = "#000000";} , time);    
 
-    setTimeout(() => {starttimer()} , time);
+    //setTimeout(() => {starttimer()} , time);
+    setTimeout(() => {start = Date.now(); console.log("lights out", start)} , time);    
 }
 
-function starttimer(){
+/*function starttimer(){
     start = Date.now();
-}
+}*/
 // function called when stop button pressed
-function stopFunction(){
-    var timepassed = Date.now() - start;
+/*function stopFunction(){
+    timepassed = Date.now() - start;
+    console.log("Stop time: ", timepassed)
     document.getElementById("reactionTime").innerHTML = timepassed;
-}
+}*/
+
+document.getElementById("stop").addEventListener("click", function(){
+    timepassed = Date.now() - start;
+    console.log("Stop time: ", timepassed, lights_out=Date.now());
+    document.getElementById("reactionTime").innerHTML = timepassed;
+});
+
 </script>
 </body>
-<footer>Author: Nathan Crowley - <a href="https://github.com/NathanCrowley">github</a> - 15/01/202</footer>
+<footer>Author: Nathan Crowley - <a href="https://github.com/NathanCrowley">github</a> - 15/01/2022</footer>
 </html>
