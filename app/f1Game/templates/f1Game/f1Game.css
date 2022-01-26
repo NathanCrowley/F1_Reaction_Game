@@ -1,0 +1,79 @@
+body{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+}
+
+.rectangle{
+    background: #453838;
+    width: 100px;
+    height: 200px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+    left: 33.3%;
+}
+
+/*selects each light*/
+.light{
+    background: #000000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+/*selects the last row of lights*/
+.light:last-child{
+    background: #000000;
+}
+
+/*start stop buttons*/
+button{
+    margin: 5px;
+    padding: 5px;
+    font-size: 25px;
+    border-radius: 4px;
+}
+
+#reactionTime{
+    font-size: 25px;
+}
+
+/*how to play and instructions*/
+h1{
+    font-size: 25px;
+}
+li{
+    font-weight:normal;
+    font-size: 15px;
+    list-style-type: none;
+}
+
+/* make responsive for mobile */
+/* stop browser from resizing things */
+@viewport{
+    width: device-width;
+    zoom: 1.0;
+}
+@-ms-viewport{
+    width: device-width ;
+}
+/* media-queries = adapt to smaller screen manually */
+/*Screen sizes: 
+    - iPad      [768x1024]
+    - iPhone X  [375x812]
+    - iPhone 6  [375x667]
+*/
+/* iPhone X/6 */
+@media screen and (max-width: 390px){
+    body{
+        top: 10%;
+        margin-left: 0%;
+    }
+    .rectangle{
+        width: 65px;
+    }
+}
