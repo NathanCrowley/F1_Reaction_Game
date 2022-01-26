@@ -19,4 +19,4 @@ Formula One style lights out game to test a user reaction.
 
 
 ## Images
-![title](Images/homepage.png)
+![title](./Images/homepage.png)
