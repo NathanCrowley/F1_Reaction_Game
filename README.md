@@ -16,7 +16,3 @@ Formula One style lights out game to test a user reaction.
 - 5 lights will turn on, one after the other.
 - Once all 5 lights have turned red, be prepared to press 'Stop'.
 - The faster you press 'Stop' the better your reaction time.
-
-
-## Images
-![title](./Images/homepage.png)
