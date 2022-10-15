@@ -17,5 +17,6 @@ Formula One style lights out game to test a user reaction.
 - Once all 5 lights have turned red, be prepared to press 'Stop'.
 - The faster you press 'Stop' the better your reaction time.
 
-## Screenshots
-<img src="f1_game_welcomepage.PNG" alt="Homepage for the application" style="height: 400px; width: 500px">
+## Application View
+![GIF showing the application running.](https://media.giphy.com/media/kTUkP9tKyRmzquV1SK/giphy.gif)
+
