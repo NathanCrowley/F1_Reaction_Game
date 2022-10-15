@@ -18,4 +18,4 @@ Formula One style lights out game to test a user reaction.
 - The faster you press 'Stop' the better your reaction time.
 
 ## Screenshots
-<img src="" alt="Homepage for the application" style="height: 300px; width: 150px">
+<img src="f1_game_welcomepage.PNG" alt="Homepage for the application" style="height: 400px; width: 500px">
